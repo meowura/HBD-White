@@ -1,0 +1,191 @@
+body {
+    margin: 0;
+    font-family: "Sriracha", cursive, sans-serif;
+    background: #ffe6f0;
+    color: #333;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+canvas#effectCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ff3385;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px #fff;
+}
+
+.slideshow-container {
+    position: relative;
+    margin: auto;
+    max-width: 600px;
+}
+
+.slide {
+    display: none;
+}
+
+.slide img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.caption {
+    color: #fff;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 0 0 15px 15px;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: fixed;
+    /* 🔥 เดิม absolute -> fixed เพื่อชิดขอบจอ */
+    top: 50%;
+    /* เอาให้อยู่กึ่งกลางแนวตั้ง */
+    transform: translateY(-50%);
+    /* เลื่อนขึ้นครึ่งตัวเองให้ตรงกลางพอดี */
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    transition: 0.3s;
+    user-select: none;
+    z-index: 10;
+    /* กันโดนกล่องอื่นบัง */
+}
+
+.prev {
+    left: 10px;
+    /* ชิดซ้าย */
+}
+
+.next {
+    right: 10px;
+    /* ชิดขวา */
+}
+
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+
+.dots {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #ff3385;
+}
+
+.music-control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+button {
+    background: #ff3385;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background: #cc0066;
+}
+
+footer {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #ff3385;
+    color: white;
+    font-size: 1.2rem;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+
+footer p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* =================== */
+/* Birthday Message Section */
+/* =================== */
+.birthday-message {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 20px;
+    font-size: 1.9rem
+}
+
+.birthday-message h2 {
+    font-size: 2rem;
+    color: #ff4d6d;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.birthday-message .paper {
+    background: #fff8f0;
+    padding: 30px;
+    border-radius: 30px 70px 50px 90px;
+    /* ขอบไม่เท่ากัน ให้ดูไม่เหลี่ยม */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    text-align: left;
+    font-family: "Sarabun", sans-serif;
+    position: relative;
+}
+
+/* เพิ่มเอฟเฟกต์เหมือนกระดาษ */
+.birthday-message .paper::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    border-radius: 40px 60px 50px 80px;
+    background: #ffe6ea;
+    z-index: -1;
+    transform: rotate(-2deg);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
